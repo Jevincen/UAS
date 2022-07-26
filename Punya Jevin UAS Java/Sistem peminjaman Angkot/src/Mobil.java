@@ -55,7 +55,7 @@ public class Mobil extends Transportasi{
      * Deskripsi Singkat    : berfungsi untuk membalikkan arraylist dari text file
      */
     public static ArrayList<Mobil> updateMobil (ArrayList<Mobil> mobil) throws FileNotFoundException, IOException {
-        try (BufferedReader read = new BufferedReader(new FileReader("data/mobil.txt"))) {
+        try (BufferedReader read = new BufferedReader(new FileReader("mobil.txt"))) {
             String s = "";
             while ((s = read.readLine()) != null) {
                 String data[] = s.split(",");
@@ -71,11 +71,11 @@ public class Mobil extends Transportasi{
      *                        OverLoading dengan method diatas karena mempunyai nama yang sama dengan parameter berbeda
      */
     public static void updateMobil (String kodeMobil, String status, ArrayList<Mobil> mobils) throws IOException{
-        String FilePath = "data/mobil.txt";
-        File oldFile = new File ("data/mobil.txt");
-        File newFile = new File ("data/temp.txt");
+        String FilePath = "mobil.txt";
+        File oldFile = new File ("mobil.txt");
+        File newFile = new File ("temp.txt");
         
-        try (BufferedReader br = new BufferedReader(new FileReader("data/mobil.txt"))) {
+        try (BufferedReader br = new BufferedReader(new FileReader("mobil.txt"))) {
             FileWriter fw = new FileWriter(newFile, true);
             BufferedWriter bw = new BufferedWriter(fw);
             PrintWriter pw = new PrintWriter(bw);
@@ -120,7 +120,7 @@ public class Mobil extends Transportasi{
      * Deskripsi Singkat    : berfungsi untuk menampilkan info mengenai mobil hanya dengan kondisi tertentu
      */
     public static void displayAturanMobil (String equals) throws FileNotFoundException, IOException{
-        try (BufferedReader read = new BufferedReader(new FileReader("data/mobil.txt"))) {
+        try (BufferedReader read = new BufferedReader(new FileReader("mobil.txt"))) {
             String s = "";
             System.out.println("|Kode\t|Jenis\t|Transmisi\t|Penumpang\t|Harga\t|");
             while ((s = read.readLine()) != null) {
@@ -180,7 +180,7 @@ public class Mobil extends Transportasi{
                 //masukkan data pelanggan ke ArrayList
                 mobils.add(new Mobil(kodeMobil, namaMobil, Transmisi, plat, penumpang, "Tersedia", harga));
                 //masukkan data pelanggan ke file
-                try (FileWriter pwMobil = new FileWriter("data/mobil.txt", true)) {
+                try (FileWriter pwMobil = new FileWriter("mobil.txt", true)) {
                     pwMobil.append("\n" + kodeMobil + "," + namaMobil + "," + Transmisi + "," + plat + "," + penumpang + "," + "Tersedia" + "," + harga);
                 }
     }
@@ -241,14 +241,14 @@ public class Mobil extends Transportasi{
                     //masukkan data pelanggan ke ArrayList
                     pelanggans.add(new Pelanggan(kodePelanggan, namaPelanggan, noTelp, umurPelanggan, emailPelanggan, "meminjam"));
                     //masukkan data pelanggan ke file
-                    try (FileWriter pwPelanggan = new FileWriter("data/pelanggan.txt", true)) {
+                    try (FileWriter pwPelanggan = new FileWriter("pelanggan.txt", true)) {
                         pwPelanggan.append("\n" + kodePelanggan + "," + namaPelanggan + "," + noTelp + "," + umurPelanggan + "," + emailPelanggan + "," + "meminjam");
                     }
 
                     //masukkan data pinjam ke ArrayList
                     pinjams.add(new TransaksiPeminjaman(kodePinjam, kodeInput, kodePelanggan, lokasiPinjam, tanggalPinjam, deposit, hargaTotal, durasi, "Meminjam"));
                     //masukkan data pinjam ke file
-                    try (FileWriter pwPinjam = new FileWriter("data/peminjaman.txt", true)) {
+                    try (FileWriter pwPinjam = new FileWriter("peminjaman.txt", true)) {
                         pwPinjam.append( "\n" +kodePinjam + "," + kodeInput + "," + kodePelanggan + "," + lokasiPinjam + "," + tanggalPinjam + "," + deposit + "," + hargaTotal + "," + durasi + ",Meminjam");
                     }
                     Mobil.updateMobil(kodeInput, "Dipinjam", mobils);
@@ -311,7 +311,7 @@ public class Mobil extends Transportasi{
                 //masukkan data kembali ke ArrayList
                 kembalis.add(new TransaksiPengembalian(kodeInput, lokasiKembali, tanggalKembali, totalDenda));
                 //masukkan data kembali ke file
-                try (FileWriter pwKembali = new FileWriter("data/pengembalian.txt", true)) {
+                try (FileWriter pwKembali = new FileWriter("pengembalian.txt", true)) {
                     pwKembali.append("\n" + kodeInput + "," + lokasiKembali + "," + tanggalKembali + "," + totalDenda);
                 }
                 util.clearScreen();
