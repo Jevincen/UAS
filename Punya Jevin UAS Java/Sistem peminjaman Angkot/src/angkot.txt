@@ -1,0 +1,7 @@
+A01,Suzuki Carry,B 4453 ABZ,Tersedia,370000
+A02,Mitsubishi T120SS,B 5598 KNU,Tersedia,370000
+A03,Suzuki APV,B 9855 SM,Tersedia,400000
+A04,Daihatsu Gran Max,B 9228 QW,Tersedia,390000
+A05,Mitsubishi Colt,B 8789 AM,Tersedia,400000
+A06,Daihatsu Hijet,B 5999 QU,Tersedia,410000
+A07,Daihatsu Zebra,B 9043 MQ,Tersedia,380000
