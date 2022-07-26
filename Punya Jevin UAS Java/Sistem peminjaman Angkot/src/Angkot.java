@@ -105,7 +105,7 @@ public class Angkot extends Transportasi{
     //Deskripsi    : - Berfungsi untuk mencetak informasi mengenai angkot dengan kriteria tertentu
     //               - Contoh : Yang dibawah hanya mencetak Kode, Jenis, Transimisi, Penumpang, dan juga Harga.
     public static void displayAturanAngkot (String equals) throws FileNotFoundException, IOException{
-        try (BufferedReader read = new BufferedReader(new FileReader("data/angkot.txt"))) {
+        try (BufferedReader read = new BufferedReader(new FileReader("angkot.txt"))) {
             String s = "";
             System.out.println("|Kode\t|Jenis\t|Penumpang\t|Harga\t|");
             while ((s = read.readLine()) != null) {
@@ -151,7 +151,7 @@ public class Angkot extends Transportasi{
                 //Data pelanggan masuk ke ArrayList
                 angkots.add(new Angkot(kodeAngkot, namaAngkot, plat, penumpang, "Tersedia", harga));
                 //Data pelanggan dicetak ke file txt
-                try (FileWriter pwAngkot = new FileWriter("data/angkot.txt", true)) {
+                try (FileWriter pwAngkot = new FileWriter("angkot.txt", true)) {
                     pwAngkot.append("\n" + kodeAngkot + "," + namaAngkot + "," + plat + "," + penumpang + "," + "Tersedia" + "," + harga);
                 }
     }
@@ -212,14 +212,14 @@ public class Angkot extends Transportasi{
                     //Data pelanggan masuk ke ArrayList
                     pelanggans.add(new Pelanggan(kodePelanggan, namaPelanggan, noTelp, umurPelanggan, emailPelanggan, "meminjam"));
                     //Data pelanggan dicetak ke file txt
-                    try (FileWriter pwPelanggan = new FileWriter("data/pelanggan.txt", true)) {
+                    try (FileWriter pwPelanggan = new FileWriter("pelanggan.txt", true)) {
                         pwPelanggan.append("\n" + kodePelanggan + "," + namaPelanggan + "," + noTelp + "," + umurPelanggan + "," + emailPelanggan + "," + "meminjam");
                     }
 
                     //Data peminjaman masuk ke ArrayList
                     pinjams.add(new TransaksiPeminjaman(kodePinjam, kodeInput, kodePelanggan, lokasiPinjam, tanggalPinjam, deposit, hargaTotal, durasi, "Meminjam"));
                     //Data pinjam dicetak ke file txt
-                    try (FileWriter pwPinjam = new FileWriter("data/peminjaman.txt", true)) {
+                    try (FileWriter pwPinjam = new FileWriter("peminjaman.txt", true)) {
                         pwPinjam.append( "\n" +kodePinjam + "," + kodeInput + "," + kodePelanggan + "," + lokasiPinjam + "," + tanggalPinjam + "," + deposit + "," + hargaTotal + "," + durasi + ",Meminjam");
                     }
                     Angkot.updateAngkot(kodeInput, "Dipinjam");
@@ -281,7 +281,7 @@ public class Angkot extends Transportasi{
                 //Data masuk kembali ke ArrayList
                 kembalis.add(new TransaksiPengembalian(kodeInput, lokasiKembali, tanggalKembali, totalDenda));
                 //Data dicetak kembali ke file
-                try (FileWriter pwKembali = new FileWriter("data/pengembalian.txt", true)) {
+                try (FileWriter pwKembali = new FileWriter("pengembalian.txt", true)) {
                     pwKembali.append("\n" + kodeInput + "," + lokasiKembali + "," + tanggalKembali + "," + totalDenda);
                 }
                 util.clearScreen();
@@ -295,7 +295,7 @@ public class Angkot extends Transportasi{
     //NIM          : 03081210037
     //Deskripsi    : berfungsi untuk mengurutkan dan menampilkan angkot berdasarkan harga terendah ke tertinggi menggunakan shell sort
     public static void displayAturanAngkotAsc (String equals) throws FileNotFoundException, IOException{
-        try (BufferedReader read = new BufferedReader(new FileReader("data/angkot.txt"))) {
+        try (BufferedReader read = new BufferedReader(new FileReader("angkot.txt"))) {
             String s = "";
             ArrayList <Angkot> asc = new ArrayList<>();
             while ((s = read.readLine()) != null) {
@@ -329,7 +329,7 @@ public class Angkot extends Transportasi{
     //NIM          : 03081210037
     //Deskripsi    : berfungsi untuk mengurutkan dan menampilkan angkot berdasarkan harga tertinggi ke terendah menggunakan shell sort
     public static void displayAturanAngkotDsc (String equals) throws FileNotFoundException, IOException{
-        try (BufferedReader read = new BufferedReader(new FileReader("data/angkot.txt"))) {
+        try (BufferedReader read = new BufferedReader(new FileReader("angkot.txt"))) {
             String s = "";
             ArrayList <Angkot> asc = new ArrayList<>();
             while ((s = read.readLine()) != null) {
