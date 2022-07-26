@@ -64,7 +64,7 @@ public class TransaksiPengembalian extends Transaksi{
      * Deskripsi Singkat    : berfungsi untuk membalikkan arraylist dari text file
      */
     public static ArrayList<TransaksiPengembalian> updateKembali (ArrayList<TransaksiPengembalian> kembalis) throws FileNotFoundException, IOException, ParseException {
-        try (BufferedReader read = new BufferedReader(new FileReader("data/pengembalian.txt"))) {
+        try (BufferedReader read = new BufferedReader(new FileReader("pengembalian.txt"))) {
             String s = "";
             while ((s = read.readLine()) != null) {
                 String data[] = s.split(",");
