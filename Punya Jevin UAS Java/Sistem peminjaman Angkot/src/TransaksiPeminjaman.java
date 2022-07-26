@@ -129,7 +129,7 @@ public class TransaksiPeminjaman extends Transaksi{
      * Deskripsi Singkat    : berfungsi untuk membalikkan arraylist dari text file
      */
     public static ArrayList<TransaksiPeminjaman> updatePinjam (ArrayList<TransaksiPeminjaman> pinjams) throws FileNotFoundException, IOException, ParseException {
-        try (BufferedReader read = new BufferedReader(new FileReader("data/peminjaman.txt"))) {
+        try (BufferedReader read = new BufferedReader(new FileReader("peminjaman.txt"))) {
             String s = "";
             while ((s = read.readLine()) != null) {
                 String data[] = s.split(",");
@@ -145,11 +145,11 @@ public class TransaksiPeminjaman extends Transaksi{
      *                        OverLoading dengan method diatas karena mempunyai nama yang sama dengan parameter berbeda
      */
     public static void updatePinjam (String kodeTransaksi, String status, ArrayList<TransaksiPeminjaman> pinjams) throws IOException, ParseException{
-        String FilePath = "data/peminjaman.txt";
-        File oldFile = new File ("data/peminjaman.txt");
-        File newFile = new File ("data/temp.txt");
+        String FilePath = "peminjaman.txt";
+        File oldFile = new File ("peminjaman.txt");
+        File newFile = new File ("temp.txt");
         
-        try (BufferedReader br = new BufferedReader(new FileReader("data/peminjaman.txt"))) {
+        try (BufferedReader br = new BufferedReader(new FileReader("peminjaman.txt"))) {
             FileWriter fw = new FileWriter(newFile, true);
             BufferedWriter bw = new BufferedWriter(fw);
             PrintWriter pw = new PrintWriter(bw);
@@ -237,7 +237,7 @@ public class TransaksiPeminjaman extends Transaksi{
      * Deskripsi Singkat    : berfungsi untukmenampilkan info mengenai transaksi peminjaman hanya dengan kondisi tertentu
      */
     public static void displayAturanPinjam (String equals1, String kode) throws FileNotFoundException, IOException{
-        try (BufferedReader read = new BufferedReader(new FileReader("data/peminjaman.txt"))) {
+        try (BufferedReader read = new BufferedReader(new FileReader("peminjaman.txt"))) {
             String s = "";
             System.out.println("|Kode Transaksi\t|Kode Mobil\t|Kode Penumpang\t|Tanggal Pinjam\t|");
             while ((s = read.readLine()) != null) {
