@@ -88,7 +88,7 @@ public class Pelanggan {
      * Deskripsi Singkat    : berfungsi untuk membalikkan arraylist dari text file
      */
     public static ArrayList<Pelanggan> updatePelanggan (ArrayList<Pelanggan> pelanggans) throws FileNotFoundException, IOException {
-        try (BufferedReader read = new BufferedReader(new FileReader("data/pelanggan.txt"))) {
+        try (BufferedReader read = new BufferedReader(new FileReader("pelanggan.txt"))) {
             String s = "";
             while ((s = read.readLine()) != null) {
                 String data[] = s.split(",");
@@ -104,11 +104,11 @@ public class Pelanggan {
      *                        OverLoading dengan method diatas karena mempunyai nama yang sama dengan parameter berbeda
      */
     public static void updatePelanggan (String kodePelanggan, String status, ArrayList<Pelanggan> pelanggans) throws IOException{
-        String FilePath = "data/pelanggan.txt";
-        File oldFile = new File ("data/pelanggan.txt");
-        File newFile = new File ("data/temp.txt");
+        String FilePath = "pelanggan.txt";
+        File oldFile = new File ("pelanggan.txt");
+        File newFile = new File ("temp.txt");
         
-        try (BufferedReader br = new BufferedReader(new FileReader("data/pelanggan.txt"))) {
+        try (BufferedReader br = new BufferedReader(new FileReader("pelanggan.txt"))) {
             FileWriter fw = new FileWriter(newFile, true);
             BufferedWriter bw = new BufferedWriter(fw);
             PrintWriter pw = new PrintWriter(bw);
