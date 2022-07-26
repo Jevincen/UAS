@@ -42,7 +42,7 @@ public class Angkot extends Transportasi{
     //NIM          : 03081210037
     //Deskripsi    : berfungsi untuk memasukkan data dari file angkot.txt ke arraylist angkot
     public static ArrayList<Angkot> updateAngkot (ArrayList<Angkot> angkot) throws FileNotFoundException, IOException {
-        try (BufferedReader read = new BufferedReader(new FileReader("data/angkot.txt"))) {
+        try (BufferedReader read = new BufferedReader(new FileReader("angkot.txt"))) {
             String s = "";
             while ((s = read.readLine()) != null) {
                 String data[] = s.split(",");
@@ -58,11 +58,11 @@ public class Angkot extends Transportasi{
     //               - Contoh : Menggantikan status angkot "Tersedia" ke "Dipinjam" atau sebaliknya yang ada di file txt
     //               - OverLoading dengan method diatas karena nama yang sama tetapi parameter berbeda
     public static void updateAngkot (String kodeAngkot, String status) throws IOException{
-        String FilePath = "data/angkot.txt";
-        File oldFile = new File ("data/angkot.txt");
-        File newFile = new File ("data/temp.txt");
+        String FilePath = "angkot.txt";
+        File oldFile = new File ("angkot.txt");
+        File newFile = new File ("temp.txt");
         
-        try (BufferedReader br = new BufferedReader(new FileReader("data/angkot.txt"))) {
+        try (BufferedReader br = new BufferedReader(new FileReader("angkot.txt"))) {
             FileWriter fw = new FileWriter(newFile, true);
             BufferedWriter bw = new BufferedWriter(fw);
             PrintWriter pw = new PrintWriter(bw);
